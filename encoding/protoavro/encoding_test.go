@@ -394,11 +394,11 @@ func Test_JSON(t *testing.T) {
 					"uint32_to_string": map[string]interface{}{
 						"array": []interface{}{
 							map[string]interface{}{
-								"key":   map[string]interface{}{"int": int32(1)},
+								"key":   map[string]interface{}{"long": int64(1)},
 								"value": map[string]interface{}{"string": "a"},
 							},
 							map[string]interface{}{
-								"key":   map[string]interface{}{"int": int32(2)},
+								"key":   map[string]interface{}{"long": int64(2)},
 								"value": map[string]interface{}{"string": "b"},
 							},
 						},
@@ -561,7 +561,7 @@ func Test_JSON(t *testing.T) {
 					"bytes_value":  map[string]interface{}{"bytes": []byte{4}},
 					"int32_value":  map[string]interface{}{"int": int32(5)},
 					"int64_value":  map[string]interface{}{"long": int64(6)},
-					"uint32_value": map[string]interface{}{"int": int32(7)},
+					"uint32_value": map[string]interface{}{"long": int64(7)},
 					"uint64_value": map[string]interface{}{"long": int64(8)},
 					"bool_value":   map[string]interface{}{"boolean": false},
 				},
@@ -946,11 +946,11 @@ func Test_OmitRoot_JSON(t *testing.T) {
 				"uint32_to_string": map[string]interface{}{
 					"array": []interface{}{
 						map[string]interface{}{
-							"key":   map[string]interface{}{"int": int32(1)},
+							"key":   map[string]interface{}{"long": int64(1)},
 							"value": map[string]interface{}{"string": "a"},
 						},
 						map[string]interface{}{
-							"key":   map[string]interface{}{"int": int32(2)},
+							"key":   map[string]interface{}{"long": int64(2)},
 							"value": map[string]interface{}{"string": "b"},
 						},
 					},
@@ -1099,7 +1099,7 @@ func Test_OmitRoot_JSON(t *testing.T) {
 				"bytes_value":  map[string]interface{}{"bytes": []byte{4}},
 				"int32_value":  map[string]interface{}{"int": int32(5)},
 				"int64_value":  map[string]interface{}{"long": int64(6)},
-				"uint32_value": map[string]interface{}{"int": int32(7)},
+				"uint32_value": map[string]interface{}{"long": int64(7)},
 				"uint64_value": map[string]interface{}{"long": int64(8)},
 				"bool_value":   map[string]interface{}{"boolean": false},
 			},
