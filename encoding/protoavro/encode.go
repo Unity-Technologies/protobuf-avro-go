@@ -111,7 +111,7 @@ func (o SchemaOptions) fieldKindJSON(
 		protoreflect.Sint32Kind:
 		return o.unionValue("int", int32(value.Int())), nil
 	case protoreflect.Uint32Kind:
-		return o.unionValue("int", int32(value.Uint())), nil
+		return o.unionValue("long", int64(value.Uint())), nil
 	case protoreflect.Int64Kind,
 		protoreflect.Fixed64Kind,
 		protoreflect.Sfixed64Kind,

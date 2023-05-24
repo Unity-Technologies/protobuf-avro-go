@@ -133,7 +133,6 @@ func (s schemaInferrer) inferFieldKind(field protoreflect.FieldDescriptor, recur
 		return avro.Float(), nil
 	case protoreflect.Int32Kind,
 		protoreflect.Fixed32Kind,
-		protoreflect.Uint32Kind,
 		protoreflect.Sfixed32Kind,
 		protoreflect.Sint32Kind:
 		return avro.Integer(), nil
@@ -141,7 +140,8 @@ func (s schemaInferrer) inferFieldKind(field protoreflect.FieldDescriptor, recur
 		protoreflect.Uint64Kind,
 		protoreflect.Fixed64Kind,
 		protoreflect.Sfixed64Kind,
-		protoreflect.Sint64Kind:
+		protoreflect.Sint64Kind,
+		protoreflect.Uint32Kind:
 		return avro.Long(), nil
 	case protoreflect.BoolKind:
 		return avro.Boolean(), nil

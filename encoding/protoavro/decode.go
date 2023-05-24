@@ -119,7 +119,7 @@ func (o *SchemaOptions) decodeFieldKind(
 		}
 		return protoreflect.ValueOfInt64(i), nil
 	case protoreflect.Uint32Kind, protoreflect.Fixed32Kind:
-		i, err := decodeIntLike(data, "int")
+		i, err := decodeIntLike(data, "long")
 		if err != nil {
 			return protoreflect.Value{}, fmt.Errorf("field %s: %w", f.Name(), err)
 		}

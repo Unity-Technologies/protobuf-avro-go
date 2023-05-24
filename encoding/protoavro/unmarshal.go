@@ -51,3 +51,13 @@ func (m *Unmarshaler) Unmarshal(message proto.Message) error {
 	}
 	return nil
 }
+
+// Decode decodes the message.
+func (o SchemaOptions) Decode(data interface{}, message proto.Message) error {
+	err := o.decodeJSON(data, message)
+	if err != nil {
+		return fmt.Errorf("encode json: %w", err)
+	}
+
+	return nil
+}

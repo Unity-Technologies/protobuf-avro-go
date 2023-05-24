@@ -150,7 +150,7 @@ func Test_MapSchema(t *testing.T) {
 					Name:      "Uint32ToStringEntry",
 					Namespace: "einride.avro.example.v1.ExampleMap",
 					Fields: []avro.Field{
-						{Name: "key", Type: avro.Nullable(avro.Integer())},
+						{Name: "key", Type: avro.Nullable(avro.Long())},
 						{Name: "value", Type: avro.Nullable(avro.String())},
 					},
 				},
