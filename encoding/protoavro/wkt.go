@@ -158,9 +158,9 @@ func schemaWrapper(w string) (avro.Schema, error) {
 		return avro.Nullable(avro.Double()), nil
 	case wkt.FloatValue:
 		return avro.Nullable(avro.Float()), nil
-	case wkt.Int32Value, wkt.UInt32Value:
+	case wkt.Int32Value:
 		return avro.Nullable(avro.Integer()), nil
-	case wkt.Int64Value, wkt.UInt64Value:
+	case wkt.Int64Value, wkt.UInt64Value, wkt.UInt32Value:
 		return avro.Nullable(avro.Long()), nil
 	case wkt.BoolValue:
 		return avro.Nullable(avro.Boolean()), nil
@@ -185,7 +185,7 @@ func (o SchemaOptions) encodeWrapper(msg protoreflect.Message) (map[string]inter
 	case wkt.Int32Value:
 		return o.unionValue("int", msg.Interface().(*wrapperspb.Int32Value).GetValue()), nil
 	case wkt.UInt32Value:
-		return o.unionValue("int", int32(msg.Interface().(*wrapperspb.UInt32Value).GetValue())), nil
+		return o.unionValue("long", int64(msg.Interface().(*wrapperspb.UInt32Value).GetValue())), nil
 	case wkt.Int64Value:
 		return o.unionValue("long", msg.Interface().(*wrapperspb.Int64Value).GetValue()), nil
 	case wkt.UInt64Value:
@@ -219,7 +219,7 @@ func decodeWrapper(w string, v map[string]interface{}) (proto.Message, error) {
 		}
 		return wrapperspb.Float(float32(f)), nil
 	case wkt.UInt32Value:
-		i, err := decodeInt(v, "int")
+		i, err := decodeInt(v, "long")
 		if err != nil {
 			return nil, fmt.Errorf("google.protobuf.UInt32Value: %w", err)
 		}
